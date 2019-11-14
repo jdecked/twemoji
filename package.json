@@ -3,7 +3,7 @@
   "name": "@discordapp/twemoji",
   "license": "MIT AND CC-BY-4.0",
   "description": "A Unicode standard based way to implement emoji across all platforms.",
-  "homepage": "https://github.com/jdecked/twemoji",
+  "homepage": "https://github.com/discordapp/twemoji",
   "keywords": [
     "emoji",
     "DOM",
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jdecked/twemoji.git"
+    "url": "git://github.com/discordapp/twemoji.git"
   },
   "main": "./dist/twemoji.npm.js",
   "module": "./dist/twemoji.esm.js",
