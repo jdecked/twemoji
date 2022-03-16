@@ -32,7 +32,7 @@
     "build": "./scripts/build.js",
     "deploy": "./scripts/deploy.sh gh-pages",
     "test": "phantomjs ./src/test/testrunner.js",
-    "prepublishOnly": "run-s build test deploy"
+    "prepublishOnly": "run-s build test"
   },
   "dependencies": {
     "fs-extra": "^8.0.1",
