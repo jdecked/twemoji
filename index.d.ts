@@ -90,7 +90,5 @@ export type Twemoji = {
   onerror(): void;
 };
 
-declare module 'twemoji' {
-  const twemoji: Twemoji;
-  export default twemoji;
-}
+declare const twemoji: Twemoji;
+export default twemoji;
