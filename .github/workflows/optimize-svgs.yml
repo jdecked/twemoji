@@ -2,6 +2,8 @@ name: optimize-svgs
 run-name: Optimize SVG size with SVGO
 on:
   push:
+    branches:
+      - main
     paths:
       - '**.svg'
   pull_request:
