@@ -1,1 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#F4ABBA" d="M35.885 11.833c0-5.45-4.418-9.868-9.867-9.868-3.308 0-6.227 1.633-8.018 4.129-1.791-2.496-4.71-4.129-8.017-4.129-5.45 0-9.868 4.417-9.868 9.868 0 .772.098 1.52.266 2.241C1.751 22.587 11.216 31.568 18 34.034c6.783-2.466 16.249-11.447 17.617-19.959.17-.721.268-1.469.268-2.242z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+  <metadata>
+    <rdf:RDF
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:connect="http://www.w3.org/1999/08/29-svg-connections-in-RDF#">
+      <rdf:Description about="#CableA">
+        <connect:ends rdf:resource="#socket1" />
+        <connect:ends rdf:resource="#ComputerA" />
+      </rdf:Description>
+      <rdf:Description about="#CableB">
+        <connect:ends rdf:resource="#socket2" />
+        <connect:ends rdf:resource="#ComputerB" />
+      </rdf:Description>
+      <rdf:Description about="#CableN">
+        <connect:ends rdf:resource="#socket5" />
+        <connect:ends>Everything</connect:ends>
+      </rdf:Description>
+      <rdf:Description about="#Hub">
+        <connect:ends rdf:resource="#socket1" />
+        <connect:ends rdf:resource="#socket2" />
+        <connect:ends rdf:resource="#socket3" />
+        <connect:ends rdf:resource="#socket4" />
+        <connect:ends rdf:resource="#socket5" />
+      </rdf:Description>
+    </rdf:RDF>
+  </metadata>
+  <path fill="#F4ABBA" d="M35.885 11.833c0-5.45-4.418-9.868-9.867-9.868-3.308 0-6.227 1.633-8.018 4.129-1.791-2.496-4.71-4.129-8.017-4.129-5.45 0-9.868 4.417-9.868 9.868 0 .772.098 1.52.266 2.241C1.751 22.587 11.216 31.568 18 34.034c6.783-2.466 16.249-11.447 17.617-19.959.17-.721.268-1.469.268-2.242z"/>
+</svg>
