@@ -5,7 +5,6 @@ on:
     paths:
       - '**.svg'
   pull_request:
-    types: [opened, edited]
     paths:
       - '**.svg'
 
