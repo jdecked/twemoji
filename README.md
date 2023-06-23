@@ -2,7 +2,7 @@
 
 A simple library that provides standard Unicode [emoji](http://en.wikipedia.org/wiki/Emoji) support across all platforms.
 
-**Twemoji v14.0** adheres to the [Unicode 14.0 spec](https://unicode.org/versions/Unicode14.0.0/) and supports the [Emoji 14.0 spec](https://www.unicode.org/reports/tr51/tr51-21.html). _We do not support custom emoji._
+**Twemoji v15.0** adheres to the [Unicode 15.0 spec](https://unicode.org/versions/Unicode15.0.0/) and supports the [Emoji 15.0 spec](https://www.unicode.org/reports/tr51/). _We do not support custom emoji._
 
 The Twemoji library offers support for all Unicode-defined emoji which are recommended for general interchange (RGI).
 
