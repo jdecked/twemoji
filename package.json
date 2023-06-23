@@ -1,9 +1,9 @@
 {
   "version": "15.0.0",
-  "name": "@twemoji/api",
+  "name": "@discordapp/twemoji",
   "license": "MIT AND CC-BY-4.0",
   "description": "A Unicode standard based way to implement emoji across all platforms.",
-  "homepage": "https://github.com/jdecked/twemoji",
+  "homepage": "https://github.com/discordapp/twemoji",
   "keywords": [
     "emoji",
     "DOM",
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jdecked/twemoji.git"
+    "url": "git://github.com/discordapp/twemoji.git"
   },
   "main": "./dist/twemoji.npm.js",
   "module": "./dist/twemoji.esm.js",
@@ -32,7 +32,7 @@
     "build": "./scripts/build.js",
     "deploy": "./scripts/deploy.sh gh-pages",
     "test": "phantomjs ./src/test/testrunner.js",
-    "prepublishOnly": "run-s build test deploy"
+    "prepublishOnly": "run-s build test"
   },
   "dependencies": {
     "fs-extra": "^8.0.1",
@@ -42,6 +42,7 @@
   },
   "files": [
     "dist/twemoji*.js",
+    "dist/svg/*.svg",
     "index.d.ts"
   ]
 }
