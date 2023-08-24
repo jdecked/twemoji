@@ -10,21 +10,19 @@ The Twemoji library offers support for all Unicode-defined emoji which are recom
 
 ### CDN Support
 
-<del>The folks over at [MaxCDN](https://www.maxcdn.com) have graciously provided CDN support.</del>
-
-MaxCDN is shut down right now, so in the meanwhile use a different CDN or download the assets. (See [Maxcdn has shut down, cdn not working anymore. · Issue #580 · twitter/twemoji](https://github.com/twitter/twemoji/issues/580)).
+Default CDN support is provided via [jsDelivr](https://www.jsdelivr.com/).
 
 Use the following in the `<head>` tag of your HTML document(s):
 
 ```html
-<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 ```
 
 This guarantees that you will always use the latest version of the library.
 
 If, instead, you'd like to include the latest version explicitly, you can add the following tag:
 ```html
-<script src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" integrity="sha384-ICOlZarapRIX6UjKPcWKEpubjg7lGADN7Y9fYP4DU9zm0aPFhgnP5ef+XFaPyKv+" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@twemoji/api@14.1.1/dist/twemoji.min.js integrity="sha384-GWrfUNp6XiceGqVNiGL6eWR/731mM4Dhg3nur6EJGcYZKVZh8pIGXkMhO5XqjFRl" crossorigin="anonymous"></script>
 ```
 
 ### Download
@@ -39,9 +37,9 @@ Following are all the methods exposed in the `twemoji` namespace.
 
 This is the main parsing utility and has 3 overloads per parsing type.
 
-Although there are two kinds of parsing supported by this utility, we recommend you use [DOM parsing](https://github.com/twitter/twemoji#dom-parsing), explained below. Each type of parsing accepts a callback to generate an image source or an options object with parsing info.
+Although there are two kinds of parsing supported by this utility, we recommend you use [DOM parsing](https://github.com/jdecked/twemoji#dom-parsing), explained below. Each type of parsing accepts a callback to generate an image source or an options object with parsing info.
 
-The second kind of parsing is string parsing, explained in the legacy documentation [here](https://github.com/twitter/twemoji/blob/master/LEGACY.md#string-parsing). This is unrecommended because this method does not sanitize the string or otherwise prevent malicious code from being executed; such sanitization is out of scope.
+The second kind of parsing is string parsing, explained in the legacy documentation [here](https://github.com/jdecked/twemoji/blob/master/LEGACY.md#string-parsing). This is unrecommended because this method does not sanitize the string or otherwise prevent malicious code from being executed; such sanitization is out of scope.
 
 #### DOM parsing
 
@@ -61,7 +59,7 @@ var img = div.querySelector('img');
 // note the div is preserved
 img.parentNode === div; // true
 
-img.src;        // https://twemoji.maxcdn.com/v/latest/72x72/2764.png
+img.src;        // https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/72x72/2764.png
 img.alt;        // \u2764\uFE0F
 img.className;  // emoji
 img.draggable;  // false
@@ -78,7 +76,7 @@ Here's the list of properties accepted by the optional object that can be passed
   {
     callback: Function,   // default the common replacer
     attributes: Function, // default returns {}
-    base: string,         // default MaxCDN
+    base: string,         // default jsDelivr
     ext: string,          // default ".png"
     className: string,    // default "emoji"
     size: string|number,  // default "72x72"
@@ -136,7 +134,7 @@ twemoji.parse(genericNode, {
 });
 ```
 
-This will generate urls such `https://twemoji.maxcdn.com/svg/2764.svg` instead of using a specific size based image.
+This will generate urls such `https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/2764.svg` instead of using a specific size based image.
 
 ## Utilities
 
@@ -208,11 +206,11 @@ twemoji.parse(document.body, {
 
 ## Legacy API (V1)
 
-If you're still using our V1 API, you can read our legacy documentation [here](https://github.com/twitter/twemoji/tree/master/LEGACY.md).
+If you're still using our V1 API, you can read our legacy documentation [here](https://github.com/jdecked/twemoji/tree/master/LEGACY.md).
 
 ## Contributing
 
-The contributing documentation can be found [here](https://github.com/twitter/twemoji/tree/master/CONTRIBUTING.md).
+The contributing documentation can be found [here](https://github.com/jdecked/twemoji/tree/master/CONTRIBUTING.md).
 
 ## Attribution Requirements
 
@@ -242,8 +240,8 @@ However, we consider the guide a bit onerous and as a project, will accept a men
 
 ## Committers and Contributors
 
-* Justine De Caires (Twitter)
-* Jason Sofonia (Twitter)
+* Justine De Caires (ex-Twitter)
+* Jason Sofonia (ex-Twitter)
 * Bryan Haggerty (ex-Twitter)
 * Nathan Downs (ex-Twitter)
 * Tom Wuttke (ex-Twitter)
@@ -255,7 +253,7 @@ The goal of this project is to simply provide emoji for everyone. We definitely 
 
 The rules for contributing are available in the `CONTRIBUTING.md` file.
 
-Thank you to all of our [contributors](https://github.com/twitter/twemoji/graphs/contributors).
+Thank you to all of our [contributors](https://github.com/jdecked/twemoji/graphs/contributors).
 
 ## License
 

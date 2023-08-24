@@ -1,6 +1,6 @@
 
 /*! Copyright Twitter Inc. and other contributors. Licensed under MIT *//*
-    https://github.com/twitter/twemoji/blob/gh-pages/LICENSE
+    https://github.com/jdecked/twemoji/blob/gh-pages/LICENSE
 */
 var base = twemoji.base;
 wru.test([{
@@ -225,8 +225,7 @@ wru.test([{
 },{
   name: 'nested nodes',
   test: function () {
-    var str = '<img class="emoji" draggable="false" alt="\u2764" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2764.png"/>',
-        div = document.createElement('div'),
+    var div = document.createElement('div'),
         p,
         img;
     div.innerHTML = '<p>I \u2764 emoji<strong>!</strong></p><p>I \u2764 them too</p>';
