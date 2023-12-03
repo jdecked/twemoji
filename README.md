@@ -2,7 +2,7 @@
 
 A simple library that provides standard Unicode [emoji](http://en.wikipedia.org/wiki/Emoji) support across all platforms.
 
-**Twemoji v14.0** adheres to the [Unicode 14.0 spec](https://unicode.org/versions/Unicode14.0.0/) and supports the [Emoji 14.0 spec](https://www.unicode.org/reports/tr51/tr51-21.html). _We do not support custom emoji._
+**Twemoji v15.0** adheres to the [Unicode 15.0 spec](https://unicode.org/versions/Unicode15.0.0/) and supports the [Emoji 15.0 spec](https://www.unicode.org/reports/tr51/tr51-23.html). _We do not support custom emoji._
 
 The Twemoji library offers support for all Unicode-defined emoji which are recommended for general interchange (RGI).
 
@@ -22,7 +22,7 @@ This guarantees that you will always use the latest version of the library.
 
 If, instead, you'd like to include the latest version explicitly, you can add the following tag:
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@twemoji/api@14.1.1/dist/twemoji.min.js integrity="sha384-GWrfUNp6XiceGqVNiGL6eWR/731mM4Dhg3nur6EJGcYZKVZh8pIGXkMhO5XqjFRl" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@twemoji/api@15.0.0/dist/twemoji.min.js integrity="sha384-GWrfUNp6XiceGqVNiGL6eWR/731mM4Dhg3nur6EJGcYZKVZh8pIGXkMhO5XqjFRl" crossorigin="anonymous"></script>
 ```
 
 ### Download
