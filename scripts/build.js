@@ -9,7 +9,7 @@ var fs = require('fs');
 var http = require('http');
 var path = require('path');
 var Utils = require('./utils');
-var regex = require('twemoji-parser/dist/lib/regex').default;
+var regex = require('@twemoji/parser/dist/lib/regex').default;
 var { version } = require('../package.json');
 
 function file(which) {

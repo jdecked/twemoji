@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@twemoji/parser@15.0.0":
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/@twemoji/parser/-/parser-15.0.0.tgz#8ae9749659ef524b5f0e6ee1412d0e48865e77bf"
+  integrity sha512-lh9515BNsvKSNvyUqbj5yFu83iIDQ77SwVcsN/SnEGawczhsKU6qWuogewN1GweTi5Imo5ToQ9s+nNTf97IXvg==
+
 ajv@^6.5.5:
   version "6.12.6"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.6.tgz#baf5a62e802b07d977034586f8c3baf5adf26df4"
@@ -964,11 +969,6 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
   integrity sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
-
-twemoji-parser@14.0.0:
-  version "14.0.0"
-  resolved "https://registry.npmjs.org/twemoji-parser/-/twemoji-parser-14.0.0.tgz#13dabcb6d3a261d9efbf58a1666b182033bf2b62"
-  integrity sha512-9DUOTGLOWs0pFWnh1p6NF+C3CkQ96PWmEFwhOVmT3WbecRC+68AIqpsnJXygfkFcp4aXbOp8Dwbhh/HQgvoRxA==
 
 typedarray@^0.0.6:
   version "0.0.6"
