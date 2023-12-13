@@ -1,5 +1,5 @@
 {
-  "version": "15.0.2",
+  "version": "15.0.3",
   "name": "@twemoji/api",
   "license": "MIT AND CC-BY-4.0",
   "description": "A Unicode standard based way to implement emoji across all platforms.",
