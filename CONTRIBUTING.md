@@ -13,7 +13,7 @@ Guidelines for bug reports:
    reported.
 
 2. **Check if the issue has been fixed** &mdash; try to reproduce it using the
-   latest `master` or development branch in the repository.
+   latest `main` or development branch in the repository.
 
 3. **Isolate the problem** &mdash; ideally create a reduced test
    case and a live example.
@@ -25,7 +25,7 @@ Guidelines for bug reports:
 ## Feature requests & contribution enquiries
 
 Feature requests are welcome. But take a moment to find out whether your idea
-fits with the scope and aims of the project. It's up to *you* to make a strong
+fits with the scope and aims of the project. It's up to _you_ to make a strong
 case for the inclusion of your feature. Please provide as much detail and
 context as possible.
 
@@ -43,7 +43,7 @@ If you'd like to test and/or contribute please follow these instructions.
 
 ```bash
 # clone your fork
-git clone -b master https://github.com/$YOUR_USERNAME/twemoji.git/
+git clone https://github.com/$YOUR_USERNAME/twemoji.git
 cd twemoji
 
 # install dependencies
@@ -65,15 +65,15 @@ project:
 
 1. Create a new topic branch to contain your feature, change, or fix:
 
-> If you'd like to test and/or propose some changes to the latest library version please change the `./scripts/build.js` file at its end so that everything will be generated properly once launched.
+> If you'd like to test and/or propose some changes to the latest library version please change the [./scripts/build.js](./scripts/build.js) file at its end so that everything will be generated properly once launched.
 
 1. Commit your changes in logical chunks. Provide clear and explanatory commit
    messages. Use git's [interactive rebase](https://help.github.com/en/articles/about-git-rebase)
    feature to tidy up your commits before making them public.
 
-2. Run `yarn prepublish`. This will do several things:
+2. Run `yarn prepublishOnly`. This will do several things:
 
-   1. Ask for the version number (See: [SemVer](https://semver.org/))
+   1. Ask for the version number (See: [SemVer](https://semver.org))
    2. Build the project and put the built assets in `dist/`
    3. Run the tests
    4. Move the contents of the `dist/` directory to the `gh-pages` branch
@@ -88,8 +88,8 @@ commits.
 
 1. Push your topic branch up to your fork: `git push origin my-feature-branch`
 
-2. [Open a Pull Request](http://help.github.com/send-pull-requests/) with a
-   clear title and description. One for your changes in `master` and another one for
+2. [Open a Pull Request](http://help.github.com/send-pull-requests) with a
+   clear title and description. One for your changes in `main` and another one for
    your changes in `gh-pages`.
 
 ## License
