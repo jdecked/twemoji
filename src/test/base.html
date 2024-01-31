@@ -6,22 +6,22 @@
     <title>basic test</title>
     <style>
     img.emoji {
-      display: inline !important;
-      border: none !important;
-      box-shadow: none !important;
-      height: 1em !important;
-      width: 1em !important;
-      margin: 0 .07em !important;
-      vertical-align: -0.1em !important;
-      background: none !important;
-      padding: 0 !important;
+      display: inline;
+      border: none;
+      box-shadow: none;
+      height: 1em;
+      width: 1em;
+      margin: 0 .07em;
+      vertical-align: -0.1em;
+      background: none;
+      padding: 0;
     }
     .emojis {
       margin-bottom: 20px;
       font-size: 32px;
     }
     </style>
-    <script src="../twemoji.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" defer></script>
     <script>
     this.onload = function () {
       twemoji.parse(document.body, {
