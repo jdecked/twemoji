@@ -236,6 +236,7 @@ However, we consider the guide a bit onerous and as a project, will accept a men
 * [EmojiOnRoku](https://github.com/KasperGam/EmojiOnRoku) by [@KasperGam](https://github.com/KasperGam): Use Twemoji on Roku!
 * [LaTeX Twemoji](https://gitlab.com/rossel.jost/latex-twemojis) by [@rossel.jost](https://gitlab.com/rossel.jost): Use Twemoji in LaTeX.
 * [PHP Twemoji](https://github.com/Astrotomic/php-twemoji) by [@Astrotomic](https://github.com/Astrotomic): Use twemoji within your PHP website project's by replacing standard Emoji with twemoji urls.
+* [Custom Twemoji API](https://github.com/custom-twemoji/custom-twemoji-api) by [@blakegearin](https://github.com/blakegearin): An API for fetching Twemoji faces and creating Twemoji face mashups.
 
 ## Committers and Contributors
 
