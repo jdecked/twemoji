@@ -258,7 +258,7 @@ Thank you to all of our [contributors](https://github.com/jdecked/twemoji/graphs
 
 ## License
 
-Copyright 2019 Twitter, Inc and other contributors
+See the [LICENSE](LICENSE) and [LICENSE-GRAPHICS](LICENSE-GRAPHICS) files for full license texts.
 
 Code licensed under the MIT License: <http://opensource.org/licenses/MIT>
 
