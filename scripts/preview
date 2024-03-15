@@ -7,7 +7,7 @@
 // dependencies
 var fs = require('fs');
 var path = require('path');
-var { parse } = require('twemoji-parser');
+var { parse } = require('@twemoji/parser');
 var Utils = require('./utils');
 var { version } = require('../package.json');
 

@@ -22,7 +22,7 @@ Following are all the methods exposed in the `twemoji` namespace.
 
 This is the main parsing utility and has 3 overloads per parsing type.
 
-There are mainly two kinds of parsing: [string parsing](https://github.com/twitter/twemoji#string-parsing) and [DOM parsing](https://github.com/twitter/twemoji#dom-parsing).
+There are mainly two kinds of parsing: [string parsing](#string-parsing) and [DOM parsing](#dom-parsing).
 
 Each of them accepts a callback to generate an image source or an options object with parsing info.
 

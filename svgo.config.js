@@ -8,6 +8,9 @@ module.exports = {
           convertColors: {
           	shortname: false,
           },
+          inlineStyles: {
+            onlyMatchedOnce: false,
+          },
           removeViewBox: false,
           removeUselessStrokeAndFill : {
           	removeNone: true,
