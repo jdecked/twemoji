@@ -1,4 +1,4 @@
-# Twitter Emoji (Twemoji) [![Build Status](https://travis-ci.org/twitter/twemoji.svg?branch=gh-pages)](https://travis-ci.org/twitter/twemoji)
+# Twitter Emoji (Twemoji) [![pages-build-deployment](https://github.com/jdecked/twemoji/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/jdecked/twemoji/actions/workflows/pages/pages-build-deployment)
 
 A simple library that provides standard Unicode [emoji](http://en.wikipedia.org/wiki/Emoji) support across all platforms.
 
