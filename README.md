@@ -39,7 +39,7 @@ This is the main parsing utility and has 3 overloads per parsing type.
 
 Although there are two kinds of parsing supported by this utility, we recommend you use [DOM parsing](https://github.com/jdecked/twemoji#dom-parsing), explained below. Each type of parsing accepts a callback to generate an image source or an options object with parsing info.
 
-The second kind of parsing is string parsing, explained in the legacy documentation [here](https://github.com/jdecked/twemoji/blob/master/LEGACY.md#string-parsing). This is unrecommended because this method does not sanitize the string or otherwise prevent malicious code from being executed; such sanitization is out of scope.
+The second kind of parsing is string parsing, explained in the legacy documentation [here](LEGACY.md#string-parsing). This is unrecommended because this method does not sanitize the string or otherwise prevent malicious code from being executed; such sanitization is out of scope.
 
 #### DOM parsing
 
@@ -206,11 +206,11 @@ twemoji.parse(document.body, {
 
 ## Legacy API (V1)
 
-If you're still using our V1 API, you can read our legacy documentation [here](https://github.com/jdecked/twemoji/tree/master/LEGACY.md).
+If you're still using our V1 API, you can read our legacy documentation [here](LEGACY.md).
 
 ## Contributing
 
-The contributing documentation can be found [here](https://github.com/jdecked/twemoji/tree/master/CONTRIBUTING.md).
+The contributing documentation can be found [here](CONTRIBUTING.md).
 
 ## Attribution Requirements
 
@@ -252,7 +252,7 @@ However, we consider the guide a bit onerous and as a project, will accept a men
 
 The goal of this project is to simply provide emoji for everyone. We definitely welcome improvements and fixes, but we may not merge every pull request suggested by the community due to the simple nature of the project.
 
-The rules for contributing are available in the `CONTRIBUTING.md` file.
+The rules for contributing are available in the [`CONTRIBUTING.md`](CONTRIBUTING.md) file.
 
 Thank you to all of our [contributors](https://github.com/jdecked/twemoji/graphs/contributors).
 
