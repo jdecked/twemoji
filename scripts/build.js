@@ -53,7 +53,7 @@ function createTwemoji() {
           ext: '.png',
 
           // default assets/folder size, by default "72x72"
-          // available via Twitter CDN: 72
+          // available via jsDelivr: 72
           size: '72x72',
 
           // default class name, by default 'emoji'
@@ -294,7 +294,7 @@ function createTwemoji() {
 
       /**
        * Default callback used to generate emoji src
-       *  based on Twitter CDN
+       *  based on jsDelivr CDN
        * @param   string    the emoji codepoint string
        * @param   string    the default size to use, i.e. "36x36"
        * @return  string    the image source to use

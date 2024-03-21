@@ -94,7 +94,7 @@ By default it is a function like the following one:
 ```js
 function imageSourceGenerator(icon, options) {
   return ''.concat(
-    options.base, // by default Twitter Inc. CDN
+    options.base, // by default jsDelivr
     options.size, // by default "72x72" string
     '/',
     icon,         // the found emoji as code point
