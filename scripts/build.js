@@ -593,15 +593,7 @@ function createTwemoji() {
       .replace(/^    /gm, '')
       // add the RegExp in the right place
       .replace('re = /twemoji/', `re = ${regex.toString()}`)
-      .replace('$VERSION', version)
-      // add the full license
-      .replace('/*! (C) Twitter Inc. */',
-        '/*! (C) Twitter Inc. *//*\n' +
-        fs.readFileSync(file('LICENSE')).toString().replace(
-          /^./gm, '   '
-        ) +
-        '\n  */'
-      ) + '());');
+      .replace('$VERSION', version);
 
 }
 
