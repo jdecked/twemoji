@@ -16,7 +16,7 @@ This branch hosts the built assets for Twemoji, and the folder structure can be 
 | 72x72/        |        | `{codepoint}`.png   | large PNGs                                                                                 | 1.0         |
 | svg/          |        | `{codepoint}`.svg   | SVGs                                                                                       | 1.0         |
 | v/            |        |                     | The versioned releases from 2.2 onwards                                                    | `<version>` |
-| v/`<version>` |        | preview*.html       | [static image preview HTML files](https://twitter.github.io/twemoji/v/latest/preview.html) | `<version>` |
+| v/`<version>` |        | preview*.html       | [static image preview HTML files](https://jdecked.github.io/twemoji/v/latest/preview.html) | `<version>` |
 | v/`<version>` | 72x72/ | `{codepoint}`.png   | (Versioned) large PNGs                                                                     | `<version>` |
 | v/`<version>` | svg/   | `{codepoint}`.svg   | (Versioned) SVGs                                                                           | `<version>` |
 | v/`<version>` |        | twemoji*.js         | (Versioned) Framework js assets                                                            | `<version>` |
