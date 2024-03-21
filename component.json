@@ -1,6 +1,6 @@
 {
   "version": "1.3.2",
-  "name": "twemoji",
+  "name": "@twemoji/api",
   "license": ["MIT", "CC-BY-4.0"],
   "description": "A Unicode standard based way to implement emoji across all platforms.",
   "homepage": "https://github.com/jdecked/twemoji",
@@ -13,10 +13,6 @@
     "Twitter",
     "unicode"
   ],
-  "author": {
-    "name": "Twitter, Inc.",
-    "web": "https://github.com/twitter/"
-  },
   "repository": "jdecked/twemoji",
   "main": "twemoji.js",
   "scripts": [
