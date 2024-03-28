@@ -593,7 +593,7 @@ function createTwemoji() {
       .replace(/^    /gm, '')
       // add the RegExp in the right place
       .replace('re = /twemoji/', `re = ${regex.toString()}`)
-      .replace('$VERSION', version);
+      .replace('$VERSION', version) + '());');
 
 }
 
