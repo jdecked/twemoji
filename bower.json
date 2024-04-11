@@ -1,5 +1,5 @@
 {
-  "name": "twemoji",
+  "name": "@twemoji/api",
   "description": "A Unicode standard based way to implement emoji across all platforms.",
   "main": "./2/twemoji.amd.js",
   "ignore": [
@@ -14,9 +14,6 @@
   ],
   "twemoji": "git://github.com/jdecked/twemoji.git#gh-pages",
   "homepage": "https://github.com/jdecked/twemoji",
-  "authors": [
-    "Twitter, Inc."
-  ],
   "moduleType": [
     "amd"
   ],

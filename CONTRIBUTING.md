@@ -96,6 +96,4 @@ commits.
 
 By contributing your code:
 
-You agree to license your contribution under the terms of the MIT (for code) and CC-BY (for graphics) licenses
-<https://github.com/twitter/twemoji/blob/gh-pages/LICENSE>
-<https://github.com/twitter/twemoji/blob/gh-pages/LICENSE-GRAPHICS>
+You agree to license your contribution under the terms of the MIT (for code; see [LICENSE](LICENSE)) and CC-BY (for graphics; see [LICENSE-GRAPHICS](LICENSE-GRAPHICS)) licenses.

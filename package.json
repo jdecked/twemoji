@@ -1,5 +1,5 @@
 {
-  "version": "15.0.2",
+  "version": "15.1.0",
   "name": "@twemoji/api",
   "license": "MIT AND CC-BY-4.0",
   "description": "A Unicode standard based way to implement emoji across all platforms.",
@@ -28,6 +28,7 @@
   "main": "./dist/twemoji.npm.js",
   "module": "./dist/twemoji.esm.js",
   "unpkg": "./dist/twemoji.min.js",
+  "types": "./index.d.ts",
   "scripts": {
     "build": "./scripts/build.js",
     "deploy": "./scripts/deploy.sh gh-pages",
@@ -37,7 +38,7 @@
   "dependencies": {
     "fs-extra": "^8.0.1",
     "jsonfile": "^5.0.0",
-    "@twemoji/parser": "15.0.0",
+    "@twemoji/parser": "15.1.0",
     "universalify": "^0.1.2"
   },
   "files": [

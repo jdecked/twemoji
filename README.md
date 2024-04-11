@@ -1,4 +1,4 @@
-# Twitter Emoji (Twemoji) [![Build Status](https://travis-ci.org/jdecked/twemoji.svg?branch=gh-pages)](https://travis-ci.org/jdecked/twemoji)
+# Twitter Emoji (Twemoji)
 
 A simple library that provides standard Unicode [emoji](http://en.wikipedia.org/wiki/Emoji) support across all platforms.
 
@@ -23,7 +23,7 @@ This guarantees that you will always use the latest version of the library.
 If, instead, you'd like to include the latest version explicitly, you can add the following tag:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@twemoji/api@15.0.2/dist/twemoji.min.js" integrity="sha384-GWrfUNp6XiceGqVNiGL6eWR/731mM4Dhg3nur6EJGcYZKVZh8pIGXkMhO5XqjFRl" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@twemoji/api@15.0.2/dist/twemoji.min.js" integrity="sha384-D6GSzpW7fMH86ilu73eB95ipkfeXcMPoOGVst/L04yqSSe+RTUY0jXcuEIZk0wrT" crossorigin="anonymous"></script>
 ```
 
 ### Download
@@ -40,7 +40,7 @@ This is the main parsing utility and has 3 overloads per parsing type.
 
 Although there are two kinds of parsing supported by this utility, we recommend you use [DOM parsing](https://github.com/jdecked/twemoji#dom-parsing), explained below. Each type of parsing accepts a callback to generate an image source or an options object with parsing info.
 
-The second kind of parsing is string parsing, explained in the legacy documentation [here](https://github.com/jdecked/twemoji/blob/main/LEGACY.md#string-parsing). This is unrecommended because this method does not sanitize the string or otherwise prevent malicious code from being executed; such sanitization is out of scope.
+The second kind of parsing is string parsing, explained in the legacy documentation [here](LEGACY.md#string-parsing). This is unrecommended because this method does not sanitize the string or otherwise prevent malicious code from being executed; such sanitization is out of scope.
 
 #### DOM parsing
 
@@ -95,7 +95,7 @@ By default it is a function like the following one:
 ```js
 function imageSourceGenerator(icon, options) {
   return ''.concat(
-    options.base, // by default Twitter Inc. CDN
+    options.base, // by default jsDelivr
     options.size, // by default "72x72" string
     '/',
     icon,         // the found emoji as code point
@@ -207,11 +207,11 @@ twemoji.parse(document.body, {
 
 ## Legacy API (V1)
 
-If you're still using our V1 API, you can read our legacy documentation [here](https://github.com/jdecked/twemoji/tree/main/LEGACY.md).
+If you're still using our V1 API, you can read our legacy documentation [here](LEGACY.md).
 
 ## Contributing
 
-The contributing documentation can be found [here](https://github.com/jdecked/twemoji/tree/main/CONTRIBUTING.md).
+The contributing documentation can be found [here](CONTRIBUTING.md).
 
 ## Attribution Requirements
 
@@ -234,10 +234,10 @@ However, we consider the guide a bit onerous and as a project, will accept a men
 * [gwt-twemoji](https://github.com/phpmonkeys-de/gwt-twemoji) by [@nbartels](https://github.com/nbartels): Use Twemoji in GWT
 * [JavaFXEmojiTextFlow](https://github.com/pavlobu/emoji-text-flow-javafx) by [@pavlobu](https://github.com/pavlobu): A JavaFX library allowing you to replace all standard emoji in extended EmojiTextFlow with Twemoji.
 * [Vue Twemoji Picker](https://github.com/kevinfaguiar/vue-twemoji-picker) by [@kevinfaguiar](https://github.com/kevinfaguiar): A fast plug-n-play Twemoji Picker (+textarea for Twemoji rendering) for Vue.
-* [Unmaintained] [Twemoji Awesome](http://ellekasai.github.io/twemoji-awesome) by [@ellekasai](https://twitter.com/ellekasai): Use Twemoji using CSS classes (like [Font Awesome](http://fortawesome.github.io/Font-Awesome)).
 * [EmojiOnRoku](https://github.com/KasperGam/EmojiOnRoku) by [@KasperGam](https://github.com/KasperGam): Use Twemoji on Roku!
 * [LaTeX Twemoji](https://gitlab.com/rossel.jost/latex-twemojis) by [@rossel.jost](https://gitlab.com/rossel.jost): Use Twemoji in LaTeX.
 * [PHP Twemoji](https://github.com/Astrotomic/php-twemoji) by [@Astrotomic](https://github.com/Astrotomic): Use twemoji within your PHP website project's by replacing standard Emoji with twemoji urls.
+* [Custom Twemoji API](https://github.com/custom-twemoji/custom-twemoji-api) by [@blakegearin](https://github.com/blakegearin): An API for fetching Twemoji faces and creating Twemoji face mashups.
 
 ## Committers and Contributors
 
@@ -249,17 +249,18 @@ However, we consider the guide a bit onerous and as a project, will accept a men
 * Andrea Giammarchi (ex-Twitter)
 * Joen Asmussen (WordPress)
 * Marcus Kazmierczak (WordPress)
-* Kevin VQ Dam (Discord)
+* Kevin VQ Dam (ex-Discord)
+* Gica Tam (Discord)
 
 The goal of this project is to simply provide emoji for everyone. We definitely welcome improvements and fixes, but we may not merge every pull request suggested by the community due to the simple nature of the project.
 
-The rules for contributing are available in the `CONTRIBUTING.md` file.
+The rules for contributing are available in the [`CONTRIBUTING.md`](CONTRIBUTING.md) file.
 
 Thank you to all of our [contributors](https://github.com/jdecked/twemoji/graphs/contributors).
 
 ## License
 
-Copyright 2019 Twitter, Inc and other contributors
+See the [LICENSE](LICENSE) and [LICENSE-GRAPHICS](LICENSE-GRAPHICS) files for full license texts.
 
 Code licensed under the MIT License: <http://opensource.org/licenses/MIT>
 

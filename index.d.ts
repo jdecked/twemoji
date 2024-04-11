@@ -84,13 +84,11 @@ export type Twemoji = {
      */
     toCodePoint(utf16surrogatePairs: string, sep?: string): string;
   };
-  parse<T extends string | HTMLElement>(node: T, options?: TwemojiOptions | ParseCallback): T;
+  parse<T extends string | HTMLElement>(node: T, options?: TwemojiOptions | ParseCallback): T extends string ? string : T;
   replace(text: string, replacer: string | ReplacerFunction): string;
   test(text: string): boolean;
   onerror(): void;
 };
 
-declare module 'twemoji' {
-  const twemoji: Twemoji;
-  export default twemoji;
-}
+declare const twemoji: Twemoji;
+export default twemoji;
