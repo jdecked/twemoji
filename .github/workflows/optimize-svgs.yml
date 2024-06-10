@@ -19,6 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{github.head_ref}}
       - uses: ericcornelissen/svgo-action@v4
         id: svgo
         with:
@@ -29,8 +31,6 @@ jobs:
         if: ${{steps.svgo.outputs.DID_OPTIMIZE}}
         with:
           commit_message: Optimize ${{steps.svgo.outputs.OPTIMIZED_COUNT}} SVG(s)
-          skip_fetch: ${{github.event_name == 'pull_request'}}
-          skip_checkout: ${{github.event_name == 'pull_request'}}
           file_pattern: '*.svg'
       - name: Comment on Pull Request
         uses: thollander/actions-comment-pull-request@v1
