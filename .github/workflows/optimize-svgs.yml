@@ -25,7 +25,7 @@ jobs:
           repo-token: ${{secrets.GITHUB_TOKEN}}
           svgo-version: 3
       - name: Commit optimizations
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         if: ${{steps.svgo.outputs.DID_OPTIMIZE}}
         with:
           commit_message: Optimize ${{steps.svgo.outputs.OPTIMIZED_COUNT}} SVG(s)
