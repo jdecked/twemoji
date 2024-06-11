@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{github.ref}}
+          ref: 'refs/pull/96/head'
       - uses: ericcornelissen/svgo-action@v4
         id: svgo
         with:
