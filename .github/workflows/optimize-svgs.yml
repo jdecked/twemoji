@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{github.ref}}
+          ref: ${{github.event.pull_request.base.ref}}
       - uses: ericcornelissen/svgo-action@v4
         id: svgo
         with:
@@ -32,7 +32,7 @@ jobs:
         with:
           commit_message: Optimize ${{steps.svgo.outputs.OPTIMIZED_COUNT}} SVG(s)
           file_pattern: '*.svg'
-          branch: ${{github.ref}}
+          branch: ${{github.event.pull_request.base.ref}}
       - name: Comment on Pull Request
         uses: thollander/actions-comment-pull-request@v2
         if: ${{steps.svgo.outputs.DID_OPTIMIZE && github.event_name == 'pull_request'}}
