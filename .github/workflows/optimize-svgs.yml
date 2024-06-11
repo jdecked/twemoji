@@ -32,6 +32,7 @@ jobs:
         with:
           commit_message: Optimize ${{steps.svgo.outputs.OPTIMIZED_COUNT}} SVG(s)
           file_pattern: '*.svg'
+          branch: ${{github.ref}}
       - name: Comment on Pull Request
         uses: thollander/actions-comment-pull-request@v2
         if: ${{steps.svgo.outputs.DID_OPTIMIZE && github.event_name == 'pull_request'}}
