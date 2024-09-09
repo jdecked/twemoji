@@ -7,7 +7,7 @@
  * @param options all info for this parsing operation
  * @param variant the optional \uFE0F ("as image") variant, in case this info is anyhow meaningful. By default this is ignored.
  */
-export type ParseCallback = (icon: string, options: object, variant: string) => string | false;
+export type ParseCallback = (icon: string, options: TwemojiOptions, variant: string) => string | false;
 
 export type ReplacerFunction = (substring: string, ...args: any[]) => string;
 
@@ -27,7 +27,7 @@ export type TwemojiOptions = {
   /**
    * Default: 72x72
    */
-  size?: string | number;
+  size?: string;
   /**
    * To render with SVG use `folder: svg, ext: .svg`
    */
