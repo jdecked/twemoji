@@ -7,7 +7,7 @@
  * @param options all info for this parsing operation
  * @param variant the optional \uFE0F ("as image") variant, in case this info is anyhow meaningful. By default this is ignored.
  */
-export type ParseCallback = (icon: string, options: Required<TwemojiOptions>, variant: string) => string | false;
+export type ParseCallback = (icon: string, options: TwemojiOptions, variant: string) => string | false;
 
 export type ReplacerFunction = (substring: string, ...args: any[]) => string;
 
