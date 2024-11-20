@@ -1,4 +1,4 @@
-# Twitter Emoji (Twemoji)
+# Twemoji
 
 A simple library that provides standard Unicode [emoji](http://en.wikipedia.org/wiki/Emoji) support across all platforms.
 
