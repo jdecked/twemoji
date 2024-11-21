@@ -6,6 +6,8 @@ A simple library that provides standard Unicode [emoji](http://en.wikipedia.org/
 
 The Twemoji library offers support for all Unicode-defined emoji which are recommended for general interchange (RGI).
 
+This is a fork of [the unmaintained Twitter Emoji set](https://github.com/twitter/twemoji) by the original authors and the community.
+
 ## Usage
 
 ### Install via NPM
