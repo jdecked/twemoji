@@ -1,5 +1,5 @@
 {
-  "version": "16.0.0",
+  "version": "16.0.1",
   "name": "@twemoji/api",
   "license": "MIT AND CC-BY-4.0",
   "description": "A Unicode standard based way to implement emoji across all platforms.",
@@ -38,7 +38,7 @@
   "dependencies": {
     "fs-extra": "^8.0.1",
     "jsonfile": "^5.0.0",
-    "@twemoji/parser": "15.1.0",
+    "@twemoji/parser": "16.0.0",
     "universalify": "^0.1.2"
   },
   "files": [

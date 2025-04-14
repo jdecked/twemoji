@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@twemoji/parser@15.1.0":
-  version "15.1.0"
-  resolved "https://registry.yarnpkg.com/@twemoji/parser/-/parser-15.1.0.tgz#ad83b69fcd1fbcb705022f2b85d73e127ad5f335"
-  integrity sha512-3HTiSxPvkWUJ4kZeCvwyKlIwkpTUfBOk6igpBBRQni58ceQMv5YK4smkc8vX/eqOlMMNER/9qobv+Q6Q8LVrqA==
+"@twemoji/parser@16.0.0":
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/@twemoji/parser/-/parser-16.0.0.tgz#289f610ed73204f46141a94180566cf3c1f86f81"
+  integrity sha512-jmuIjkp3OIaEemwMy3sArBwZSuZkRqmueGwRe2Zk4cFzbUJISFBJSZLDUUBNIgq3c+nY49ideYN2OiII6JUqwA==
 
 ajv@^6.5.5:
   version "6.12.6"
