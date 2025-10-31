@@ -258,6 +258,7 @@ However, we consider the guide a bit onerous and as a project, will accept a men
 * Marcus Kazmierczak (WordPress)
 * Kevin VQ Dam (ex-Discord)
 * Gica Tam (Discord)
+* Ben Olson (Discord)
 
 The goal of this project is to simply provide emoji for everyone. We definitely welcome improvements and fixes, but we may not merge every pull request suggested by the community due to the simple nature of the project.
 
