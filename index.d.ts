@@ -33,6 +33,10 @@ export type TwemojiOptions = {
    */
   folder?: string;
   /**
+   * Default: the built-in emoji matching regex
+   */
+  regex?: RegExp;
+  /**
    * The function to invoke in order to generate image src(s).
    */
   callback?: ParseCallback
@@ -43,7 +47,7 @@ export type TwemojiOptions = {
    * @param variant variant the optional \uFE0F ("as image") variant, in case this info is anyhow meaningful. By default this is ignored.
    * 
    */
-  attributes?(icon: string, variant: string): object;
+  attributes?(icon: string, variant: string): Record<string, string>;
 }
 
 export type Twemoji = {
@@ -51,6 +55,8 @@ export type Twemoji = {
   ext: string;
   className: string;
   size: string;
+  regex: RegExp;
+  readonly defaultRegex: RegExp;
   convert: {
     /**
      * Given an HEX codepoint, returns UTF16 surrogate pairs.
@@ -85,7 +91,7 @@ export type Twemoji = {
     toCodePoint(utf16surrogatePairs: string, sep?: string): string;
   };
   parse<T extends string | HTMLElement>(node: T, options?: TwemojiOptions | ParseCallback): T extends string ? string : T;
-  replace(text: string, replacer: string | ReplacerFunction): string;
+  replace(text: string, replacer: string | ReplacerFunction, regex?: RegExp): string;
   test(text: string): boolean;
   onerror(): void;
 };
