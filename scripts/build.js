@@ -282,8 +282,11 @@ function createTwemoji() {
             return re;
           },
           set: function(value) {
-            // clone upon setting to avoid issues with stateful `lastIndex`
-            re = new RegExp(value);
+            re = value.flags === defaultRegex.flags && value.source === defaultRegex.source
+              // use reference-equal default to re-enable fast path in `replace`
+              ? defaultRegex
+              // else, clone upon setting to avoid issues with stateful `lastIndex`
+              : new RegExp(value);
           },
           enumerable: true
         }
