@@ -21,13 +21,29 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{github.head_ref}}
+          fetch-depth: 0
+
+      - name: Fetch base ref
+        if: github.event_name == 'pull_request'
+        run: git fetch origin ${{github.base_ref}} --depth=1
 
       - uses: actions/setup-node@v4
         with:
           node-version: 20
 
+      - name: Get changed SVG files
+        id: changed
+        run: |
+          if [ "${{github.event_name}}" = "pull_request" ]; then
+            git diff --name-only "origin/${{github.base_ref}}" -- '*.svg' > /tmp/changed_svgs.txt
+          else
+            git diff --name-only "${{github.event.before}}" -- '*.svg' > /tmp/changed_svgs.txt
+          fi
+          echo "COUNT=$(wc -l < /tmp/changed_svgs.txt | tr -d ' ')" >> "$GITHUB_OUTPUT"
+
       - name: Run SVGO
-        run: npx svgo@3 --config svgo.config.js -r assets/svg/
+        if: steps.changed.outputs.COUNT != '0'
+        run: xargs npx svgo@3 --config svgo.config.js < /tmp/changed_svgs.txt
 
       - name: Check for changes
         id: svgo
