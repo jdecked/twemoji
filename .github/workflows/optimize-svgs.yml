@@ -31,18 +31,19 @@ jobs:
         with:
           node-version: 20
 
+      - name: Run SVGO on all SVGs
+        if: github.event_name == 'push'
+        run: npx svgo@3 --config svgo.config.js -r assets/svg/
+
       - name: Get changed SVG files
+        if: github.event_name == 'pull_request'
         id: changed
         run: |
-          if [ "${{github.event_name}}" = "pull_request" ]; then
-            git diff --name-only "origin/${{github.base_ref}}" -- '*.svg' > /tmp/changed_svgs.txt
-          else
-            git diff --name-only "${{github.event.before}}" -- '*.svg' > /tmp/changed_svgs.txt
-          fi
+          git diff --name-only "origin/${{github.base_ref}}" -- '*.svg' > /tmp/changed_svgs.txt
           echo "COUNT=$(wc -l < /tmp/changed_svgs.txt | tr -d ' ')" >> "$GITHUB_OUTPUT"
 
-      - name: Run SVGO
-        if: steps.changed.outputs.COUNT != '0'
+      - name: Run SVGO on changed SVGs
+        if: github.event_name == 'pull_request' && steps.changed.outputs.COUNT != '0'
         run: xargs npx svgo@3 --config svgo.config.js < /tmp/changed_svgs.txt
 
       - name: Check for changes

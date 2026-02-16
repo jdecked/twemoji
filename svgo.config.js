@@ -11,6 +11,9 @@ module.exports = {
           inlineStyles: {
             onlyMatchedOnce: false,
           },
+          removeDesc: {
+            removeAny: true,
+          },
           removeViewBox: false,
           removeUselessStrokeAndFill : {
           	removeNone: true,
@@ -19,6 +22,7 @@ module.exports = {
       },
     },
     'convertStyleToAttrs',
+    'sortAttrs',
     'removeDimensions',
     'removeRasterImages',
     'removeScriptElement',
