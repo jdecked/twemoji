@@ -550,7 +550,7 @@ wru.test([{
   name: 'unnecessary vs16s',
   test: function () {
     wru.assert('are not parsed in strings',
-     /^<img.*>\ufe0f$/.test(twemoji.parse('\ud83d\ude10\ufe0f')) 
+     /^<img.*>\ufe0f$/.test(twemoji.parse('\ud83d\ude10\ufe0f'))
     );
 
     var div = document.createElement('div');
@@ -559,6 +559,58 @@ wru.test([{
     wru.assert('are not parsed in nodes',
       div.children.length === 1 && div.innerText === '\ufe0f'
     );
+  }
+},{
+  // Issue #157: per Unicode, U+2196-2199 default to text presentation and
+  // should only render as emoji when paired with VS16 (FE0F). Today, the
+  // parser matches them bare; the VS16/VS15 cases below already behave
+  // correctly. The bare-arrow assertion fails until @twemoji/parser is
+  // updated to require VS16 for these codepoints.
+  name: 'directional arrow variation selectors (#157)',
+  test: function () {
+    // U+2197 + VS16 should render as 2197.png
+    var div = document.createElement('div');
+    div.innerHTML = '\u2197\ufe0f';
+    twemoji.parse(div);
+    wru.assert(
+      'U+2197 with VS16 is rendered as emoji',
+      div.firstChild &&
+      div.firstChild.className === 'emoji' &&
+      div.firstChild.getAttribute('alt') === '\u2197\ufe0f' &&
+      div.firstChild.src.indexOf('72x72/2197.png') !== -1
+    );
+
+    // U+2197 + VS15 text presentation, should not render
+    div = document.createElement('div');
+    div.innerHTML = '\u2197\ufe0e';
+    twemoji.parse(div);
+    wru.assert(
+      'U+2197 with VS15 is not rendered (text presentation)',
+      div.innerHTML === '\u2197\ufe0e'
+    );
+
+    // Bare U+2197 defaults to text per Unicode, should not render.
+    // Currently fails: parser matches bare arrow.
+    div = document.createElement('div');
+    div.innerHTML = '\u2197';
+    twemoji.parse(div);
+    wru.assert(
+      'bare U+2197 is not rendered (defaults to text per Unicode)',
+      div.innerHTML === '\u2197'
+    );
+
+    // Same expectation for the other three diagonal arrows.
+    var diagonals = ['\u2196', '\u2198', '\u2199'];
+    for (var i = 0; i < diagonals.length; i++) {
+      div = document.createElement('div');
+      div.innerHTML = diagonals[i];
+      twemoji.parse(div);
+      wru.assert(
+        'bare U+' + diagonals[i].charCodeAt(0).toString(16) +
+          ' is not rendered (defaults to text per Unicode)',
+        div.innerHTML === diagonals[i]
+      );
+    }
   }
 },{
   name: 'multiple parsing using a callback',
