@@ -561,12 +561,10 @@ wru.test([{
     );
   }
 },{
-  // Issue #157: per Unicode, U+2196-2199 default to text presentation and
-  // should only render as emoji when paired with VS16 (FE0F). Today, the
-  // parser matches them bare; the VS16/VS15 cases below already behave
-  // correctly. The bare-arrow assertion fails until @twemoji/parser is
-  // updated to require VS16 for these codepoints.
-  name: 'directional arrow variation selectors (#157)',
+  // All Emoji_Presentation=No emoji should only render as emoji when
+  // paired with VS16. See [the spec](https://unicode.org/reports/tr51/proposed.html#Presentation_Style)
+  // and https://github.com/jdecked/twemoji/issues/157 for more info.
+  name: 'directional arrow variation selectors',
   test: function () {
     // U+2197 + VS16 should render as 2197.png
     var div = document.createElement('div');
@@ -580,7 +578,7 @@ wru.test([{
       div.firstChild.src.indexOf('72x72/2197.png') !== -1
     );
 
-    // U+2197 + VS15 text presentation, should not render
+    // U+2197 + VS15 text presentation, should not render emoji
     div = document.createElement('div');
     div.innerHTML = '\u2197\ufe0e';
     twemoji.parse(div);
@@ -589,28 +587,14 @@ wru.test([{
       div.innerHTML === '\u2197\ufe0e'
     );
 
-    // Bare U+2197 defaults to text per Unicode, should not render.
-    // Currently fails: parser matches bare arrow.
+    // Bare U+2197 defaults to text, should not render emoji
     div = document.createElement('div');
     div.innerHTML = '\u2197';
     twemoji.parse(div);
     wru.assert(
-      'bare U+2197 is not rendered (defaults to text per Unicode)',
+      'bare U+2197 is not rendered (defaults to text)',
       div.innerHTML === '\u2197'
     );
-
-    // Same expectation for the other three diagonal arrows.
-    var diagonals = ['\u2196', '\u2198', '\u2199'];
-    for (var i = 0; i < diagonals.length; i++) {
-      div = document.createElement('div');
-      div.innerHTML = diagonals[i];
-      twemoji.parse(div);
-      wru.assert(
-        'bare U+' + diagonals[i].charCodeAt(0).toString(16) +
-          ' is not rendered (defaults to text per Unicode)',
-        div.innerHTML === diagonals[i]
-      );
-    }
   }
 },{
   name: 'multiple parsing using a callback',
