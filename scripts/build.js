@@ -38,6 +38,13 @@ function createTwemoji() {
       /*jshint maxparams:4 */
 
       var
+        // RegExp based on emoji's official Unicode standards
+        // http://www.unicode.org/Public/UNIDATA/EmojiSources.txt
+        re = /twemoji/,
+        // Keep a reference to the original in case it's changed
+        defaultRegex = re,
+        // Used for skipping any HTML special chars matched by user-supplied regex
+        htmlGroupedRe = /([<>&'"]+)/,
         // the exported module object
         twemoji = {
 
@@ -246,10 +253,6 @@ function createTwemoji() {
           '"': '&quot;'
         },
 
-        // RegExp based on emoji's official Unicode standards
-        // http://www.unicode.org/Public/UNIDATA/EmojiSources.txt
-        re = /twemoji/,
-
         // avoid runtime RegExp creation for not so smart,
         // not JIT based, and old browsers / engines
         UFE0Fg = /\uFE0F/g,
@@ -265,6 +268,29 @@ function createTwemoji() {
 
         // just a private shortcut
         fromCharCode = String.fromCharCode;
+
+      Object.defineProperties(twemoji, {
+        defaultRegex: {
+          get: function () {
+            // clone upon getting to avoid issues with stateful `lastIndex`
+            return new RegExp(defaultRegex);
+          },
+          enumerable: true
+        },
+        regex: {
+          get: function() {
+            return re;
+          },
+          set: function(value) {
+            re = value.flags === defaultRegex.flags && value.source === defaultRegex.source
+              // use reference-equal default to re-enable fast path in `replace`
+              ? defaultRegex
+              // else, clone upon setting to avoid issues with stateful `lastIndex`
+              : new RegExp(value);
+          },
+          enumerable: true
+        }
+      });
 
       return twemoji;
 
@@ -366,6 +392,7 @@ function createTwemoji() {
         var
           allText = grabAllTextNodes(node, []),
           length = allText.length,
+          regex = options.regex,
           attrib,
           attrname,
           modified,
@@ -385,7 +412,7 @@ function createTwemoji() {
           subnode = allText[length];
           text = subnode.nodeValue;
           i = 0;
-          while ((match = re.exec(text))) {
+          while ((match = regex.exec(text))) {
             index = match.index;
             if (index !== i) {
               fragment.appendChild(
@@ -486,7 +513,7 @@ function createTwemoji() {
             ret = ret.concat('/>');
           }
           return ret;
-        });
+        }, options.regex);
       }
 
       /**
@@ -552,12 +579,24 @@ function createTwemoji() {
           ext:        how.ext || twemoji.ext,
           size:       how.folder || toSizeSquaredAsset(how.size || twemoji.size),
           className:  how.className || twemoji.className,
-          onerror:    how.onerror || twemoji.onerror
+          onerror:    how.onerror || twemoji.onerror,
+          regex:      how.regex || re
         });
       }
 
-      function replace(text, callback) {
-        return String(text).replace(re, callback);
+      function replace(text, callback, regex) {
+        regex = regex || re;
+
+        if (regex !== defaultRegex) {
+          return String(text).split(htmlGroupedRe).map(function (part, idx) {
+            return idx % 2 === 1
+              ? part
+              : part.replace(regex, callback);
+          }).join('');
+        }
+
+        // fast path because we know `defaultRegex` will never match HTML special chars
+        return String(text).replace(regex, callback);
       }
 
       function test(text) {

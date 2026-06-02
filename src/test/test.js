@@ -1986,4 +1986,63 @@ wru.test([{
       );
     });
   }
+},{
+  name: 'custom regex (global)',
+  test: function () {
+    try {
+      wru.assert(
+        'before patch',
+        '<img class="emoji" draggable="false" alt="\u2764" src="' + base + '72x72/2764.png"/>!' ===
+        twemoji.parse('\u2764!')
+      );
+
+      twemoji.regex = /!/g;
+
+      wru.assert(
+        'while patched',
+        '\u2764<img class="emoji" draggable="false" alt="!" src="' + base + '72x72/21.png"/>' ===
+        twemoji.parse('\u2764!')
+      );
+    } catch (err) {
+      throw err;
+    } finally {
+      twemoji.regex = twemoji.defaultRegex;
+
+      wru.assert(
+        'after patch',
+        '<img class="emoji" draggable="false" alt="\u2764" src="' + base + '72x72/2764.png"/>!' ===
+        twemoji.parse('\u2764!')
+      );
+    }
+  }
+},{
+  name: 'custom regex (options passed to `parse`)',
+  test: function () {
+    wru.assert(
+      'no options before',
+      '<img class="emoji" draggable="false" alt="\u2764" src="' + base + '72x72/2764.png"/>!' ===
+      twemoji.parse('\u2764!')
+    );
+
+    wru.assert(
+      'with customized `regex` option',
+      '\u2764<img class="emoji" draggable="false" alt="!" src="' + base + '72x72/21.png"/>' ===
+      twemoji.parse('\u2764!', { regex: /!/g })
+    );
+
+    wru.assert(
+      'no options after',
+      '<img class="emoji" draggable="false" alt="\u2764" src="' + base + '72x72/2764.png"/>!' ===
+      twemoji.parse('\u2764!')
+    );
+  }
+},{
+  name: '`parse` output with custom regex is XSS-safe',
+  test: function () {
+    wru.assert(
+      'XSS safety',
+      '<>&\'"' ===
+      twemoji.parse('<>&\'"', { regex: /<>|&'"/g })
+    );
+  }
 }]);
