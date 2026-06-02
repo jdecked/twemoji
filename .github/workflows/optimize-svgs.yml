@@ -21,20 +21,53 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{github.head_ref}}
-      - uses: ericcornelissen/svgo-action@v4
-        id: svgo
+          fetch-depth: 0
+
+      - name: Fetch base ref
+        if: github.event_name == 'pull_request'
+        run: git fetch origin ${{github.base_ref}} --depth=1
+
+      - uses: actions/setup-node@v4
         with:
-          repo-token: ${{secrets.GITHUB_TOKEN}}
-          svgo-version: 3
+          node-version: 20
+
+      - name: Run SVGO on all SVGs
+        if: github.event_name == 'push'
+        run: npx svgo@3 --config svgo.config.js -r assets/svg/
+
+      - name: Get changed SVG files
+        if: github.event_name == 'pull_request'
+        id: changed
+        run: |
+          git diff --name-only "origin/${{github.base_ref}}" -- '*.svg' > /tmp/changed_svgs.txt
+          echo "COUNT=$(wc -l < /tmp/changed_svgs.txt | tr -d ' ')" >> "$GITHUB_OUTPUT"
+
+      - name: Run SVGO on changed SVGs
+        if: github.event_name == 'pull_request' && steps.changed.outputs.COUNT != '0'
+        run: xargs npx svgo@3 --config svgo.config.js < /tmp/changed_svgs.txt
+
+      - name: Check for changes
+        id: svgo
+        run: |
+          CHANGED=$(git diff --name-only -- '*.svg' | wc -l | tr -d ' ')
+          if [ "$CHANGED" -gt 0 ]; then
+            echo "DID_OPTIMIZE=true" >> "$GITHUB_OUTPUT"
+            echo "OPTIMIZED_COUNT=$CHANGED" >> "$GITHUB_OUTPUT"
+          else
+            echo "DID_OPTIMIZE=false" >> "$GITHUB_OUTPUT"
+            echo "OPTIMIZED_COUNT=0" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Commit optimizations
         uses: stefanzweifel/git-auto-commit-action@v5
-        if: ${{steps.svgo.outputs.DID_OPTIMIZE}}
+        if: steps.svgo.outputs.DID_OPTIMIZE == 'true'
         with:
           commit_message: Optimize ${{steps.svgo.outputs.OPTIMIZED_COUNT}} SVG(s)
           file_pattern: '*.svg'
+
       - name: Comment on Pull Request
         uses: thollander/actions-comment-pull-request@v2
-        if: ${{steps.svgo.outputs.DID_OPTIMIZE && github.event_name == 'pull_request'}}
+        if: steps.svgo.outputs.DID_OPTIMIZE == 'true' && github.event_name == 'pull_request'
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           message: Optimized ${{steps.svgo.outputs.OPTIMIZED_COUNT}} SVG(s)
