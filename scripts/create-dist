@@ -20,7 +20,7 @@ function distFile(...which) {
 fs.writeFileSync(
   distFile('twemoji.npm.js'),
   [
-    'var location = global.location || {};',
+    'var location = (typeof globalThis !== "undefined" ? globalThis : typeof global !== "undefined" ? global : {}).location || {};',
     fs.readFileSync(distFile('twemoji.js')),
     'if (!location.protocol) {',
     '  twemoji.base = twemoji.base.replace(/^http:/, "");',
